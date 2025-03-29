@@ -1,0 +1,169 @@
+/* ตั้งค่าฟอนต์และสีพื้นฐาน */
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(0, 18, 51, 0.9), rgba(0, 8, 20, 1));
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* เอฟเฟกต์ดาว */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 255, 255, 0.2), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+    z-index: -1; /* ทำให้เอฟเฟกต์อยู่ด้านหลังเนื้อหา */
+    animation: twinkling 5s infinite alternate;
+}
+
+/* ทำให้ดาวระยิบระยับ */
+@keyframes twinkling {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+
+/* เฮดเดอร์ */
+header {
+    margin-top: 50px;
+    font-size: 2rem;
+}
+
+/* เพิ่มเอฟเฟกต์ Glow ให้ Header */
+.glow-text {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+}
+
+/* Animation ของ Header */
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #ff00ff; }
+    100% { text-shadow: 0 0 20px #00ffff; }
+}
+
+/* ข้อความแนะนำ */
+.intro-text {
+    font-size: 1.2em;
+    color: #ddd;
+    padding: 0 20px;
+    animation: fadeIn 1.5s ease-in-out;
+    margin-top: 40px;  /* เพิ่มระยะห่างด้านบน */
+}
+
+/* Animation ทำให้ข้อความค่อยๆ ปรากฏ */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* กล่องเนื้อหาที่ลอยอยู่ในอวกาศ */
+.container {
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    margin: 100px auto;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.7);
+}
+
+/* ปุ่มแนวกาแล็คซี่ */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.galaxy-button {
+    background: linear-gradient(45deg, #ff0080, #8000ff);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.galaxy-button:hover {
+    background: linear-gradient(45deg, #8000ff, #ff0080);
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px rgba(255, 0, 128, 0.8);
+}
+
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #ff0080; }
+    50% { box-shadow: 0 0 20px #8000ff; }
+    100% { box-shadow: 0 0 5px #ff0080; }
+}
+
+.galaxy-button {
+    animation: glowing 1.5s infinite alternate;
+}
+
+/* 📌 Media Queries สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .glow-text {
+        font-size: 2em;
+    }
+
+    .intro-text {
+        font-size: 1em;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .galaxy-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .glow-text {
+        font-size: 1.8em;
+    }
+
+    .intro-text {
+        font-size: 0.9em;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .galaxy-button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}

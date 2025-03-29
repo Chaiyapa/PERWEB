@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เกม Blackjack</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="blackjack-container">
+    <h1 class="glow-text">เกม Blackjack</h1>
+
+    <div class="dealer-section">
+      <h2>เจ้ามือ</h2>
+      <div id="dealer-cards" class="cards"></div>
+      <p id="dealer-score" class="score"></p>
+    </div>
+
+    <div class="player-section">
+      <h2>ผู้เล่น</h2>
+      <div id="player-cards" class="cards"></div>
+      <p id="player-score" class="score"></p>
+    </div>
+
+    <div class="controls">
+      <button id="hit-btn" class="action-btn">Hit</button>
+      <button id="stand-btn" class="action-btn">Stand</button>
+      <button id="restart-btn" class="action-btn">Restart</button>
+    </div>
+
+    <div id="result" class="result"></div>
+
+    <!-- ปุ่มกลับหน้า Home -->
+    <div class="home-container">
+      <a href="index.html" class="home-btn">🏠 กลับหน้า Home</a>
+    </div>
+  </div>
+
+  <script src="JavaScript/Script.js"></script>
+</body>
+</html>

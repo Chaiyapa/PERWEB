@@ -1,0 +1,236 @@
+/* พื้นฐานสำหรับหน้า */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #001233, #000814);
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden; /* เพื่อไม่ให้เลื่อนเกินขอบ */
+  position: relative;
+}
+
+/* เอฟเฟกต์ดาว */
+@keyframes star-fall {
+  0% {
+      transform: translateY(-1000px);
+      opacity: 0;
+  }
+  50% {
+      transform: translateY(600px);
+      opacity: 1;
+  }
+  100% {
+      transform: translateY(-1000px);
+      opacity: 0;
+  }
+}
+
+.star {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  height: 3px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: star-fall linear infinite;
+  animation-duration: 3s;
+}
+
+.star:nth-child(odd) {
+  animation-duration: 2.5s;
+}
+
+.star:nth-child(even) {
+  animation-duration: 4s;
+}
+
+.star:nth-child(3n) {
+  animation-duration: 3s;
+}
+
+.star:nth-child(4n) {
+  animation-duration: 3.5s;
+}
+
+/* สร้างดาวที่กระจัดกระจายทั่วพื้นหลัง */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+body::before {
+  animation: star-fall 3s infinite;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* กล่องเกม */
+.blackjack-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(95, 19, 209, 0.4);
+  position: relative;
+  z-index: 1;
+}
+
+/* Header Glow Effect */
+.glow-text {
+  font-size: 3.5em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+  margin-bottom: 20px;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 20px #ff00ff; }
+  100% { text-shadow: 0 0 35px #00ffff; }
+}
+
+/* Section styling */
+.dealer-section, .player-section {
+  margin: 20px 0;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.card {
+  width: 60px;
+  height: 90px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin: 0 5px;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* คะแนน */
+.score {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+/* ควบคุมปุ่ม */
+.controls {
+  margin-top: 20px;
+}
+
+.action-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff0080, #8000ff);
+  color: #fff;
+  transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #8000ff, #ff0080);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+/* ผลลัพธ์ */
+.result {
+  font-size: 2em;
+  margin-top: 20px;
+}
+
+/* Parallax Background Effect */
+.parallax {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('your-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+  transform: translateZ(0);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* เพิ่มการตอบสนองเมื่อ hover ปุ่ม */
+.home-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.home-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+      width: 50px;
+      height: 75px;
+      font-size: 1em;
+  }
+  .action-btn {
+      font-size: 0.9em;
+      padding: 8px 16px;
+      margin: 5px;
+  }
+  .score {
+      font-size: 1.2em;
+  }
+  .glow-text {
+      font-size: 2.8em;
+  }
+}
+
+/* ปรับปรุง Parallax */
+@media (max-width: 768px) {
+  .parallax {
+      background-position: center center;
+      background-size: cover;
+  }
+}

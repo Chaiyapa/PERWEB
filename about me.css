@@ -1,0 +1,168 @@
+/* ตั้งค่าฟอนต์และสีพื้นฐาน */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #001233, #000814);
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* กล่องข้อมูลเกี่ยวกับตัวเอง */
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(95, 19, 209, 0.4);
+}
+
+/* Header Glow Effect */
+.glow-text {
+  font-size: 3.5em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: glow 2s infinite alternate;
+  margin-bottom: 20px;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 20px #ff00ff; }
+  100% { text-shadow: 0 0 35px #00ffff; }
+}
+
+/* สไตล์ของโปรไฟล์ */
+.profile {
+  margin-top: 20px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  margin-bottom: 20px;
+  image-rendering: optimizeQuality; /* เพิ่มคุณภาพของภาพ */
+  /* การโหลดภาพแบบล่าช้า */
+  loading: lazy;
+}
+
+/* เพิ่มการตั้งค่าให้รูปภาพโหลดแบบ Lazy Load */
+img {
+  loading: lazy;
+}
+
+/* ข้อความโปรไฟล์ */
+.profile-name,
+.profile-role {
+  font-size: 1.2em;
+}
+
+/* ลิงค์โซเชียล */
+.social-links {
+  margin-top: 20px;
+}
+
+.social-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+  margin: 10px;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+/* ปุ่มกลับหน้า Home */
+.home-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.home-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.home-btn:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+/* 📌 Media Queries สำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+  body {
+      padding: 10px;
+  }
+
+  .about-container {
+      padding: 20px;
+  }
+
+  .glow-text {
+      font-size: 2.5em;
+  }
+
+  .profile-pic {
+      width: 120px;
+      height: 120px;
+  }
+
+  .social-btn {
+      font-size: 1em;
+      padding: 10px 20px;
+  }
+
+  .home-btn {
+      font-size: 1em;
+      padding: 10px 20px;
+  }
+}
+
+/* 📌 Media Queries สำหรับมือถือ */
+@media (max-width: 480px) {
+  .glow-text {
+      font-size: 1.8em;
+  }
+
+  .profile-pic {
+      width: 100px;
+      height: 100px;
+  }
+
+  .social-btn {
+      font-size: 0.9em;
+      padding: 8px 15px;
+  }
+
+  .home-btn {
+      font-size: 0.9em;
+      padding: 8px 15px;
+  }
+}
